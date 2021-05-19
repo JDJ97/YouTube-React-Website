@@ -1,0 +1,26 @@
+.NavBarContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 800px;
+    width: 60%;
+    background-color: rgb(93, 91, 91);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    box-shadow: 0px 5px 5px grey;
+    font-weight: bold;
+}
+
+
+.NavBarContainer img {
+    height: 60px;
+    width: 100px;
+}
+
+.NavBarContainer a {
+    color: rgb(253, 253, 252);
+}
+
+.NavBarContainer a:link {
+    text-decoration: none;
+}

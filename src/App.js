@@ -9,7 +9,7 @@ const App = () => {
     <div className="App">
       <NavBar/>
       <Switch>
-      <Route path="/home" component={Home} />
+      <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       </Switch>
     </div>
