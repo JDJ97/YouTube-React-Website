@@ -7,7 +7,7 @@ const Home = () => {
 
     const FetchVideos = async () => {
         try {
-        const res = await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=player&id=aqz-KE-bpKQ&key=AIzaSyAQv4WQq76MzwsBnlmtlhujCeP4Ph2qlC8`)
+        const res = await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=player&id=aqz-KE-bpKQ&key=${process.env.REACT_APP_API_KEY }`)
         debugger
            console.log(res.data.player)
            setVideos(res.data.items[0].player.embedHtml)
