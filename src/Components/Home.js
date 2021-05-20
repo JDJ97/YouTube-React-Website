@@ -1,39 +1,46 @@
 import axios from "axios"
-import {useEffect, useState} from "react"
+import {useState} from "react"
 import "./Home.css"
+require("dotenv").config()
 
 const Home = () => {
     const [videos, setVideos] = useState([])
+    const [showList, setShowList] = useState(false)
+    const [input, setInput] = useState("")
 
     const FetchVideos = async () => {
         try {
-        const res = await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=player&id=aqz-KE-bpKQ&key=${process.env.REACT_APP_API_KEY }`)
+        const res = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${input}&type=video&key=${process.env.REACT_APP_API_KEY}`)
         debugger
-           console.log(res.data.player)
-           setVideos(res.data.items[0].player.embedHtml)
+        setVideos(res.data.items)
         } catch (error) {
             setVideos([])
         }
     }
 
-    useEffect(() => {
-        FetchVideos()
-    }, [])
-
     const handleSubmit =(e)=>{
         e.preventDefault()
+        FetchVideos()
+        setShowList(true)
     }
 
+    const handleChange = (e) => {
+        setInput(e.target.value)
+    }
     return (
         
         <section className="homeContainer">
             <form onSubmit={handleSubmit}>
-                <input/>
+                <input value={input} onChange={handleChange}/>
                 <button>Submit</button>
             </form>
-          {/* {videos} */}
-          <iframe width="480" height="270" src="//www.youtube.com/embed/aqz-KE-bpKQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="Bunny" allowfullscreen></iframe>
-
+            {showList ? (
+          <ul>
+              {videos.map((videoObj) => {
+                  return <li key={videoObj.id}> <img alt="thumbnails" src={videoObj.snippet.thumbnails.default.url} /> {videoObj.snippet.title}  </li>
+              })}
+          </ul> )
+         : <ul></ul> }
         </section>
     )
 }
