@@ -1,34 +1,48 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
+import React, { useState } from "react";
+import { useParams } from "react-router-dom"
+import YouTube from 'react-youtube';
 
 const Video = (props) => {
-    const [video, setVideo] = useState([])
+  const [input, setInput] = useState("")
+  const { id } = useParams()
 
-    const fetchVideo = async () =>{
-        try {
-            const { id } = props.match.params
-            const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?id=${id}&key=${process.env.REACT_APP_API_KEY}`)
-            console.log(res)
-        } catch (error) {
-            setVideo([])
-        }
-    }
 
-   useEffect(() => {
-        fetchVideo()
-    }, [])
+  const goBack = () => {
+    props.history.goBack();
+  };
 
-    const goBack = () => {
-        props.history.goBack();
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
 
-    return (
-        <section>
-            <button onClick={goBack}>Return</button>
-        </section>
-    )
-}
+  const handleChange = (e) => {
+    setInput(e.target.value)
+  } 
+
+  const opts = {
+    height: '390',
+    width: '640',
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+
+  const _onReady = (e) => {
+    e.target.pauseVideo();
+  }
+
+
+  return (
+      
+    <section>
+      <button onClick={goBack}>Return</button>
+        <YouTube videoId={id} opts={opts} onReady={_onReady} />
+        <h2>Comments</h2>
+        <form onSubmit={handleSubmit}>
+            <input value={input} onChange={handleChange}/>
+        </form>
+    </section>
+  );
+};
 
 export default Video;
-//props that contains videoID
-//use id to make video api call

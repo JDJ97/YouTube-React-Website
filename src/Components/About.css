@@ -1,0 +1,26 @@
+.description p {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+ul{
+    padding: 0%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+img{
+    width: 200px;
+}
+
+.card p{
+    width: 200px;
+}
+
