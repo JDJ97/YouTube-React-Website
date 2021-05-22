@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+.videoContainer button {
+  margin: 2em;
+  font-size: 15px;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: rgb(10, 2, 2);
+  border: none;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
+.videoContainer button:hover {
+    background-color: red;
+    border: red;
+}
+
+.videoContainer ul {
+        display: flex;
+        flex-direction: column;
+}

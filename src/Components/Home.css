@@ -1,3 +1,28 @@
 .homeContainer {
     padding-top: 2%;
 }
+
+.homeContainer ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    
+}
+
+.homeContainer li {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 200px;
+    padding: 1%;
+}
+
+.homeContainer li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.homeContainer li a:hover {
+    color: blue;
+}
