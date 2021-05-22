@@ -38,7 +38,7 @@ const Home = () => {
             {showList ? (
           <ul>
               {videos.map((videoObj) => {
-                  return <li key={videoObj.id.videoId}> <img alt="thumbnails" src={videoObj.snippet.thumbnails.default.url} /> <Link to={`/video/${videoObj.id.videoId}`}>{videoObj.snippet.title}</Link> </li>
+                  return <li key={videoObj.id.videoId}><Link to={`/video/${videoObj.id.videoId}`}><img alt="thumbnails" src={videoObj.snippet.thumbnails.default.url} />{videoObj.snippet.title}</Link> </li>
                   
               })}
           </ul> )
