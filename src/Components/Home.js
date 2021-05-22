@@ -42,7 +42,7 @@ const Home = () => {
                   
               })}
           </ul> )
-         : <ul></ul> }
+         : <ul> No videos</ul> }
         </section>
     )
 }
