@@ -42,7 +42,7 @@ const About = () => {
         <li className="card">
           <h3>Yashiry Azize</h3>
           <img src={Yashi} alt="YashiPic" height="220px" />
-          <a href="https://github.com/yashiazize"><i class="devicon-github-original-wordmark colored"/></a>
+          <a href="https://github.com/yashiazize"><i class="devicon-github-original-wordmark colored" id="blue"/></a>
           <p>
             Software engineer with an unquenchable curiosity to learn. Hobbies
             includes drawing, watching movies, and gaming. I am passionate about
