@@ -3,7 +3,9 @@ import NavBar from "./Components/NavBar"
 import {Switch, Route} from "react-router-dom"
 import Home from "./Components/Home"
 import About from "./Components/About"
-import Videos from "./Components/Videos"
+import Video from "./Components/Video"
+
+
 const App = () => {
   return (
     <div className="App">
@@ -11,7 +13,7 @@ const App = () => {
       <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/video/id" component={Videos} />
+      <Route path="/video/:id" component={Video} />
       </Switch>
     </div>
   );
