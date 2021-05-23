@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 import "./Video.css";
@@ -9,11 +9,22 @@ const Video = (props) => {
   const [commentSection, setCommentSection] = useState([]);
   const { id } = useParams();
 
-
   const goBack = () => {
     props.history.goBack();
   };
 
+  // useEffect(() => {
+  //   const storage = localStorage.getItem("storage");
+  //   if (storage) {
+  //     setCommentSection(JSON.parse(storage));
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   if ({ id }) {
+  //     localStorage.setItem("storage", JSON.stringify(commentSection));
+  //   }
+  // });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +36,6 @@ const Video = (props) => {
     setComment("");
   };
 
-
   const handleChange = (e) => {
     if (e.target.name === "name") {
       setName(e.target.value);
@@ -33,7 +43,6 @@ const Video = (props) => {
       setComment(e.target.value);
     }
   };
-
 
   const opts = {
     height: "390",
@@ -43,13 +52,10 @@ const Video = (props) => {
     },
   };
 
-
-
   const _onReady = (e) => {
     e.target.pauseVideo();
   };
 
-  
   return (
     <section className="videoContainer">
       <button onClick={goBack}>Return to Search</button>

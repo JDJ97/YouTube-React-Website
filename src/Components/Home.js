@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom"
 import axios from "axios"
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import "./Home.css"
 require("dotenv").config()
 
@@ -18,6 +18,17 @@ const Home = () => {
             setVideos([])
         }
     }
+
+    // useEffect(() =>{
+    //     const videoListStorage = localStorage.getItem("videoListStorage")
+    //     if (videoListStorage) {
+    //       setVideos(JSON.parse(videoListStorage))
+    //     }
+    //   }, [])
+    
+    //   useEffect(() => {
+    //     localStorage.setItem("videoListStorage", JSON.stringify(videos))
+    //   })
 
     const handleSubmit =(e)=>{
         e.preventDefault()
@@ -42,7 +53,7 @@ const Home = () => {
                   
               })}
           </ul> )
-         : <ul> No videos</ul> }
+          : <ul> No videos</ul> }
         </section>
     )
 }
