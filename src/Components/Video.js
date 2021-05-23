@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 import "./Video.css";
@@ -19,6 +19,10 @@ const Video = (props) => {
     setName("")
     setComment("")
   };
+
+  useEffect(() => {
+      localStorage.setItem('store-comment-section', JSON.stringify(commentSection))
+  })
 
   const handleChange = (e) => {
     if (e.target.name === "name") {
