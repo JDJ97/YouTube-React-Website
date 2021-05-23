@@ -48,23 +48,32 @@ const Video = (props) => {
     <section className="videoContainer">
       <button onClick={goBack}>Return to Search</button>
       <YouTube videoId={id} opts={opts} onReady={_onReady} />
+      <br />
+      <hr/>
       <h2>Comments</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          {" "}
-          Name:
-          <input type="text" onChange={handleChange} name="name" value={name} />
+        <label className="left">
+         
+          Name
+          <br/>
+          <br/>
+          <input type="text" onChange={handleChange} name="name" value={name} placeholder="Name.." />
         </label>
-        <label>
-          {" "}
-          Comment:
+        <label className="left">
+          <br/>
+          Comment
+          <br/>
+          <br/>
           <input
+            id="comment"
             type="text"
             onChange={handleChange}
             name="comment"
             value={comment}
+            placeholder="Comment.."
           />
         </label>
+        <br/>
         <button>Comment</button>
       </form>
       <ul>
