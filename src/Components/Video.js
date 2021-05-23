@@ -19,7 +19,7 @@ const Video = (props) => {
     e.preventDefault();
     setCommentSection((prevCommentSection) => [
       ...prevCommentSection,
-      `${name}: ${comment}`,
+      `${name} : ${comment}`,
     ]);
     setName("");
     setComment("");
@@ -48,6 +48,12 @@ const Video = (props) => {
   const _onReady = (e) => {
     e.target.pauseVideo();
   };
+
+  const RemoveComment =(index) =>{
+    const newCommentSection = [...commentSection];
+    newCommentSection.splice(index, 1);
+    setCommentSection(newCommentSection);
+  }
 
   
   return (
@@ -89,7 +95,10 @@ const Video = (props) => {
       </form>
       <ul>
         {commentSection.map((comment) => {
-          return <li> {comment} </li>;
+          return <li> 
+                <p> {comment} </p>
+                <button id="removeBtn" onClick={RemoveComment}>Remove</button>
+                </li>;
         })}
       </ul>
     </section>

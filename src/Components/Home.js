@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom"
 import axios from "axios"
-import {useState} from "react"
+import {useEffect, useState} from "react"
 import "./Home.css"
 require("dotenv").config()
 
@@ -23,11 +23,18 @@ const Home = () => {
         e.preventDefault()
         FetchVideos()
         setShowList(true)
+
     }
 
     const handleChange = (e) => {
         setInput(e.target.value)
     }
+
+    
+
+
+
+
     return (
         
         <section className="homeContainer">
