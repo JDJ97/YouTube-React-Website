@@ -33,7 +33,11 @@
 }
 
 .videoContainer li {
-  padding: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
 }
 
 .left {
@@ -46,8 +50,17 @@
 
 input {
   width: 300px;
+  height: 22px;
 }
 
 #comment {
   width: 500px;
+}
+
+#removeBtn {
+  margin-right: 0px;
+  padding: .5%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }

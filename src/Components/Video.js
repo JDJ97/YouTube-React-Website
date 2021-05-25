@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 import "./Video.css";
@@ -12,6 +12,7 @@ const Video = (props) => {
   const goBack = () => {
     props.history.goBack();
   };
+
 
   // useEffect(() => {
   //   const storage = localStorage.getItem("storage");
@@ -30,7 +31,7 @@ const Video = (props) => {
     e.preventDefault();
     setCommentSection((prevCommentSection) => [
       ...prevCommentSection,
-      `${name}: ${comment}`,
+      `${name} : ${comment}`,
     ]);
     setName("");
     setComment("");
@@ -56,6 +57,13 @@ const Video = (props) => {
     e.target.pauseVideo();
   };
 
+  const RemoveComment =(index) =>{
+    const newCommentSection = [...commentSection];
+    newCommentSection.splice(index, 1);
+    setCommentSection(newCommentSection);
+  }
+
+  
   return (
     <section className="videoContainer">
       <button onClick={goBack}>Return to Search</button>
@@ -95,7 +103,10 @@ const Video = (props) => {
       </form>
       <ul>
         {commentSection.map((comment) => {
-          return <li> {comment} </li>;
+          return <li> 
+                <p> {comment} </p>
+                <button id="removeBtn" onClick={RemoveComment}>Remove</button>
+                </li>;
         })}
       </ul>
     </section>

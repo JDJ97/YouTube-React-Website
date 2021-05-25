@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom"
 import axios from "axios"
-import {useState, useEffect} from "react"
+import {useState} from "react"
 import "./Home.css"
 require("dotenv").config()
 
@@ -26,7 +26,8 @@ const Home = () => {
     //     }
     //   }, [])
     
-    //   useEffect(() => {
+
+    // useEffect(() => {
     //     localStorage.setItem("videoListStorage", JSON.stringify(videos))
     //   })
 
@@ -34,11 +35,14 @@ const Home = () => {
         e.preventDefault()
         FetchVideos()
         setShowList(true)
+
     }
 
     const handleChange = (e) => {
         setInput(e.target.value)
     }
+    
+
     return (
         
         <section className="homeContainer">
@@ -49,8 +53,7 @@ const Home = () => {
             {showList ? (
           <ul>
               {videos.map((videoObj) => {
-                  return <li key={videoObj.id.videoId}><Link to={`/video/${videoObj.id.videoId}`}><img alt="thumbnails" src={videoObj.snippet.thumbnails.default.url} />{videoObj.snippet.title}</Link> </li>
-                  
+                  return <li key={videoObj.id.videoId}><Link to={`/video/${videoObj.id.videoId}`}><img alt="thumbnails" src={videoObj.snippet.thumbnails.default.url} />{videoObj.snippet.title}</Link> </li>  
               })}
           </ul> )
           : <ul> No videos</ul> }

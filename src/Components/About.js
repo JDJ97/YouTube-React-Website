@@ -42,7 +42,9 @@ const About = () => {
         <li className="card">
           <h3>Yashiry Azize</h3>
           <img src={Yashi} alt="YashiPic" height="220px" />
-          <a href="https://github.com/yashiazize"><i class="devicon-github-original-wordmark colored" id="blue"/></a>
+          <a href="https://github.com/yashiazize">
+            <i class="devicon-github-original-wordmark colored" id="blue" />
+          </a>
           <p>
             Software engineer with an unquenchable curiosity to learn. Hobbies
             includes drawing, watching movies, and gaming. I am passionate about
@@ -62,10 +64,13 @@ const About = () => {
         <li className="card">
           <h3>Poonam Dass</h3>
           <img src={Poonam} alt="Headshot of Poonam" />
-          <a href="https://github.com/PoonamDass"><i class="devicon-github-original-wordmark colored" id="red"/></a>
+          <a href="https://github.com/PoonamDass">
+            <i class="devicon-github-original-wordmark colored" id="red" />
+          </a>
           <p>
-            Software engineer in the making with a passion for immigrant
-            justice.
+            Software engineer in the making with a passion for utilizing data to
+            tell stories in immigrant justice spaces. Hobbies include community
+            organizing, knitting, and binge watching Parks and Recs.
           </p>
           <div className="info1">
             <p>
@@ -81,7 +86,9 @@ const About = () => {
         <li className="card">
           <h3>Jailene DeVine-Jones</h3>
           <img src={Jailene} alt="Jailene" />
-          <a href="https://github.com/JDJ97"><i class="devicon-github-original-wordmark colored" id="purple"/></a>
+          <a href="https://github.com/JDJ97">
+            <i class="devicon-github-original-wordmark colored" id="purple" />
+          </a>
           <p>
             Software engineer with a passion for robotics and AI. My hobbies
             include playing games, doing sudoku puzzles, and taking care of my
